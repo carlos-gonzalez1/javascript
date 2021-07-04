@@ -85,9 +85,10 @@
 //desafio5
 
 class Producto{
-    constructor(nombre, precio){
+    constructor(nombre, precio, cantidad){
         this.nombre  = nombre.toUpperCase();
         this.precio = parseFloat(precio);
+        this.cantidad = cantidad;
         this.vendido = false;
     }
     sumaIva(){
@@ -96,22 +97,17 @@ class Producto{
     vender(){
         this.vendido = true;
     }
+    tostring(){
+        return `Producto: ${this.nombre}\nprecio: ${this.precio}\ncantidad: ${this.cantidad}`;
+    }
 }
 
-const producto1 = new Producto("Gabinete","10800");
-const producto2 = new Producto("Memoria ram","8000");
-const producto3 = new Producto("Placa de video","97780");
-const producto4 = new Producto("Notebooks","84900");
+const producto1 = new Producto("Gabinete","10800",1);
 const nombre = prompt("Ingrese nombre del producto");
 const precio = Number(prompt("Ingrese el precio del producto"));
+const cantidad = Number(prompt("Ingresar cantidad"));
 
 producto1.sumaIva();
-producto2.sumaIva();
-producto3.sumaIva();
 producto1.vender();
-producto2.vender();
-producto3.vender();
-console.log(producto1);
-console.log(producto2);
-console.log(producto3);
-console.log(producto4);
+const valoresActuales = producto1.tostring();
+console.log(valoresActuales);
