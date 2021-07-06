@@ -84,6 +84,35 @@
 
 //desafio5
 
+// class Producto{
+//     constructor(nombre, precio, cantidad){
+//         this.nombre  = nombre.toUpperCase();
+//         this.precio = parseFloat(precio);
+//         this.cantidad = cantidad;
+//         this.vendido = false;
+//     }
+//     sumaIva(){
+//         this.precio = this.precio * 1.21;
+//     }
+//     vender(){
+//         this.vendido = true;
+//     }
+//     tostring(){
+//         return `Producto: ${this.nombre}\nprecio: ${this.precio}\ncantidad: ${this.cantidad}`;
+//     }
+// }
+
+// const producto1 = new Producto("Gabinete","10800",1);
+// const nombre = prompt("Ingrese nombre del producto");
+// const precio = Number(prompt("Ingrese el precio del producto"));
+// const cantidad = Number(prompt("Ingresar cantidad"));
+
+// producto1.sumaIva();
+// producto1.vender();
+// const valoresActuales = producto1.tostring();
+// console.log(valoresActuales);
+
+//desafio6 y complementario
 class Producto{
     constructor(nombre, precio, cantidad){
         this.nombre  = nombre.toUpperCase();
@@ -102,12 +131,36 @@ class Producto{
     }
 }
 
-const producto1 = new Producto("Gabinete","10800",1);
-const nombre = prompt("Ingrese nombre del producto");
-const precio = Number(prompt("Ingrese el precio del producto"));
-const cantidad = Number(prompt("Ingresar cantidad"));
+const productos = [{id: 1, Producto: "Gabinete", precio: 10800, cantidad: 1},
+                { id: 2, Producto: "Memoras ram", precio: 8000, cantidad: 1},
+                {id: 3, Producto: "Motherboards", precio: 33900, cantidad: 1},
+                {id: 4, Producto: "Procesadores", precio: 56800, cantidad: 1},
+                {id: 5, Producto: "Fuentees de poder", precio: 9500, cantidad: 1},
+                {id: 6, Producto: "Auriculares", precio: 10980, cantidad: 1},
+                {id: 7, Producto: "Microfono", precio: 9000, cantidad: 1},
+                {id: 8, Producto: "Placas de video", precio: 97780, cantidad: 1}];
 
-producto1.sumaIva();
-producto1.vender();
-const valoresActuales = producto1.tostring();
-console.log(valoresActuales);
+const Productos1 = [];
+Productos1.push(new Producto("Disco rigido", "4800", 1));
+Productos1.push(new Producto("Refrigeracion para pc", "39270", 1));
+Productos1.push(new Producto("Monitores", "35689", 1));
+Productos1.push(new Producto("Notebooks", "84900",  1));
+console.log(Productos1);
+
+                for (const producto of productos){
+                    console.log(producto.id);
+                    console.log(producto.Producto);
+                }
+
+const buscar = productos.find(Producto => Producto.id === 3);
+console.log(buscar);
+
+const baratos = productos.filter(Producto => Producto.precio < 10000);
+console.log(baratos);
+
+const aumento = productos.map(Producto => Producto.precio += 300);
+console.log(aumento);
+
+console.log(productos.sort(function(prev, next){
+    return prev.precio - next.precio;
+}));
