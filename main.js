@@ -1,140 +1,175 @@
-//1ra Entrega de Proyecto Final
+//DOM , EVENTOS Y COMPLEMENTARIO
 
-alert("Bienvenido/A A Venta Online Gaming Componentes De Pc-Notebook");
-
-const ingreseNombre = prompt("Ingrese su nombre");
-const ingreseSuApellido = prompt("Ingrese apellido");
-alert("Bienvenido " + ingreseNombre + " " + ingreseSuApellido + "!");
-
-
-let lista = prompt(`Ingrese el nombre del producto con la primera letra en mayuscula.
-Lista De Productos :
-* Gabinetes
-* Memorias ram
-* Motherboards
-* Procesadores
-* Fuentes de poder
-* Auriculares
-* Microfono
-* Placas de video
-* Disco rigidos
-* Refrigeracion de pc
-* Monitores
-* Notebooks`);
-
-switch (lista){
-    case "Gabinetes":
-        alert("El Gabinete cuesta $10800.");
-        break;
-    case "Memorias ram":
-        alert("La Memoria ram cuesta $8000.");
-        break;   
-    case "Motherboards":
-        alert("El Motherboards cuesta $33900.");
-        break;
-    case "Procesadores":
-        alert("Los Procesadores cuestan $56800.");
-        break;
-    case "Fuentees de poder":
-        alert("Las Fuentes de poder cuestan $9500.");
-        break;
-    case "Auriculares":
-        alert("Los Auriculares cuestan $10980.");
-        break;
-    case "Microfono":
-        alert("Los Microfonos cuestan $9000.");
-        break;
-    case "Placas de video":
-        alert("Las Placas de video cuestan $97780.");
-        break;
-    case "Disco rigido":
-        alert("Los discos rigidos cuestan $4800.");
-        break;
-    case "Refrigeracion para pc":
-        alert("Las Refrigeracion para pc cuestan $39270.");
-        break;
-    case "Monitores":
-        alert("Los Monitores cuestan $35689.");
-        break;
-    case "Notebooks":
-        alert("Las Notebooks cuestan $84900.");
-        break;
-        default:
-            alert("Lo lamentamos, por el momento no disponemos de " + lista + ".");
-}
-const menuPrincipal = () => {};
-
-menuPrincipal();
-
-var desc ;
-
-var ImporteFactura = prompt('Introduzca monto FTR');
-
-var importe = parseInt(ImporteFactura);
-
-var cantidad = parseInt(prompt("Ingresar cantidad"));
-
-var desc = importe* 0.2
-
-var iva = importe * 0.21 ;
-
-var total = importe - desc + iva ;
-
-document.write('<h1> Importe: ' + importe + 'p/ </h1>')
-document.write('<h1> Iva: ' + iva + 'p/ </h1>')
-document.write('<h1> desc ' + desc + 'p/ </h1>');
-document.write('<h1> Total: ' + total + 'p/ </h1>')
-
-class Producto{
-    constructor(nombre, precio, cantidad){
-        this.nombre  = nombre.toUpperCase();
-        this.precio = parseFloat(precio);
-        this.cantidad = cantidad;
-        this.vendido = false;
-    }
-    sumaIva(){
-        this.precio = this.precio * 0.21;
-    }
-    vender(){
-        this.vendido = true;
-    }
-    tostring(){
-        return `Producto: ${this.nombre}\nprecio: ${this.precio}\ncantidad: ${this.cantidad}`;
-    }
+class Producto {
+  constructor(marca, nombre, precio) {
+      this.marca = marca;
+      this.nombre = nombre.toUpperCase();
+      this.precio = precio;
+  }
 }
 
-const productos = [{id: 1, Producto: "Gabinete", precio: 10800, cantidad: 1},
-                { id: 2, Producto: "Memoras ram", precio: 8000, cantidad: 1},
-                {id: 3, Producto: "Motherboards", precio: 33900, cantidad: 1},
-                {id: 4, Producto: "Procesadores", precio: 56800, cantidad: 1},
-                {id: 5, Producto: "Fuentees de poder", precio: 9500, cantidad: 1},
-                {id: 6, Producto: "Auriculares", precio: 10980, cantidad: 1},
-                {id: 7, Producto: "Microfono", precio: 9000, cantidad: 1},
-                {id: 8, Producto: "Placas de video", precio: 97780, cantidad: 1}];
+class Persona {
+  constructor(nombre) {
+      this.nombre = nombre;
+  }
 
-                console.log(productos);
+  agregarProducto(producto) {
+      if (this.productos.find(item => item.marca == producto.marca)) {
+          return 'Producto ya existe';
+      } else {
+          this.productos.push(producto);
+          return 'Producto agregado';
+      }
+  }
 
-const Productos1 = [];
-Productos1.push(new Producto("Disco rigido", "4800", 1));
-Productos1.push(new Producto("Refrigeracion para pc", "39270", 1));
-Productos1.push(new Producto("Monitores", "35689", 1));
-Productos1.push(new Producto("Notebooks", "84900",  1));
-console.log(Productos1);
+  actualizarDeposito() {
+      localStorage.setItem(`${this.nombre}`, JSON.stringify(this.productos));
+  }
 
-                for (const producto of productos){
-                    console.log(producto.id);
-                    console.log(producto.Producto);
-                }
+  cargarDeposito() {
+      const deposito = JSON.parse(localStorage.getItem(`${this.nombre}`));
+      
+      if (deposito) {
+          this.productos = deposito;
+      } else {
+          this.productos = [];
+      }
+  }
 
-const buscar = productos.find(Producto => Producto.id === 3);
-console.log(buscar);
+  mostrarProductos() {
+      const section = document.createElement("section");
+      const nombrePersona = document.createElement("h1");
+      nombrePersona.textContent = `Bienvenid@ a ${this.nombre}`;
+      section.appendChild(nombrePersona);
 
-const baratos = productos.filter(Producto => Producto.precio < 10000);
-console.log(baratos);
+      this.productos.map(elemento => {
+          section.appendChild(this.armarTarjeta(elemento));
+      });
 
-const aumento = productos.map(Producto => Producto.precio += 300);
-console.log(aumento);
+      document.body.appendChild(section);
+  }
+  
+  armarTarjeta(elemento) {
+      const tarjeta = document.createElement("div");
+      tarjeta.classList.add("tarjeta");
 
-console.log(productos.sort(function(prev, next){
-    return prev.precio - next.precio;
-}));
+      const nombreProducto = document.createElement("h3");
+      nombreProducto.textContent = `${elemento.nombre}`
+      tarjeta.appendChild(nombreProducto);
+
+      const marca = document.createElement("div");
+      marca.textContent = `Marca: ${elemento.marca}`;
+      tarjeta.appendChild(marca);
+
+      const precio = document.createElement("div");
+      precio.textContent = `Precio: ${elemento.precio}`;
+      
+    
+      elemento.precio > 8000 ? precio.classList.add("uno") : precio.classList.add("dos");
+
+      tarjeta.appendChild(precio);
+      return tarjeta;
+  }
+}
+
+const consultarIngresoDeProdcuto = () => prompt('¿Desea ingresar un producto? Y/N ').toUpperCase() === 'Y';
+
+const cargarProductos = (Persona) => {
+  while (consultarIngresoDeProdcuto()) {
+      const producto = new Producto(prompt('Marca'), prompt('Nombre del producto'), parseFloat(prompt('Precio')));
+      alert(Persona.agregarProducto(producto));
+  }
+}
+
+function iniciarPrograma() {
+  const persona = new Persona(prompt("INGRESE SU NOMBRE"));
+  persona.cargarDeposito();
+  cargarProductos(persona);
+  persona.actualizarDeposito();
+  persona.mostrarProductos();
+}
+
+iniciarPrograma();
+
+
+//evento para dark mode
+
+let botonDarkMode = document.getElementById("darkMode");
+botonDarkMode.addEventListener("click", cambiarTema);
+
+//eventos para guardar un formulario
+
+let formulario = document.getElementById("formularioProductos");
+formulario.addEventListener("submit", guardarProducto);
+
+//evento para mostar menu de productos
+let mostrarMenu = document.getElementById("mostrarMenu");
+mostrarMenu.addEventListener("click", mostrarFormulario)
+
+//funcio para cambiar tema
+
+function cambiarTema() {
+    document.body.classList.toggle("darkMode");
+}
+
+//funcion para cargar listado del local o iniciarlo si no hay
+
+function cargarListado() {
+    let listadoProductos = JSON.parse(localStorage.getItem("listadoProductos"));
+    if(listadoProductos == null) {
+        return [];
+    }
+    return listadoProductos;
+}
+
+//funcion para guardar en localStorage
+function guardarListado(listadoProductos) {
+    localStorage.setItem("listadoProductos", JSON.stringify(listadoProductos));
+    mostrarListado(listadoProductos);
+}
+
+//funcion para guardar
+
+function guardarProducto(e) {
+    e.preventDefault();
+    let nombre = document.querySelector("#nombre").value;
+    let marca = document.querySelector("#marca").value;
+    let precio = document.querySelector("#precio").value;
+
+    let listadoProductos = cargarProductos();
+    listadoProductos.push(new Producto(nombre, marca, precio));
+
+    guardarListado(listadoProductos);
+    document.getElementById('formularioProductos').reset();
+}
+
+//funcion para mostrar menu de productos
+function mostrarFormulario() {
+    document.getElementById("menuAgregar").classList.toggle("oculto");
+}
+
+//funcion para armar una tarjeta 
+function armarTarjeta(elemento) {
+    const tarjeta = document.createElement("div");
+    tarjeta.classList.add("tarjeta");
+
+    const nombreProducto = document.createElement("h3");
+    nombreProducto.textContent = `${elemento.nombre}`
+    tarjeta.appendChild(nombreProducto);
+
+    const marca = document.createElement("div");
+    marca.textContent = `marca: ${elemento.marca}`;
+    tarjeta.appendChild(marca);
+    return tarjeta;
+}
+
+function mostrarListado(listadoProductos) {
+    let listado = document.getElementById("listado");
+    listado.textContent = "";
+    listadoProductos.map(elemento => {
+        listado.appendChild(armarTarjeta(elemento));
+    });
+}
+
+
+mostrarListado(cargarProductos());
