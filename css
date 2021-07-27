@@ -1,0 +1,30 @@
+.tarjeta {
+    background-color: lightgray;
+    margin: 1vh;
+    color: black;
+}
+
+.uno {
+    background-color: rgb(26, 230, 26);
+}
+
+.dos {
+    background-color: rgb(35, 248, 255);
+}
+
+.oculto{
+    display: none;
+}
+
+#mostrarMenu{
+    margin-bottom: 1em;
+}
+
+#btn{
+    margin-top: 1em;
+}
+
+.darkMode{
+    background-color: black;
+    color: white;
+}
