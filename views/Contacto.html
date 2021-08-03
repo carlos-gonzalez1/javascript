@@ -15,26 +15,20 @@
 <body>
     
      <!--NAVEGATION-->
-     <span class="nav-bar" id="btnMenu"><i class="fas fa-bars"></i>Menú</span>
-     <nav class="main-nav"></nav>
-     <ul class="menu" id="menu">
-         <li class="menu__item"><a href="/index.html" class="menu__link">Inicio</a></li>
-         <li class="menu__item"><a href="/views/Nosotros.html" class="menu__link">Nosotros</a></li>
-         <li class="menu__item container-submenu">
-             <a href="#" class="menu__link submenu-btn">Productos <i class="fas fa-angle-down"></i></a>
-             <ul class="submenu">
-                 <li class="menu__item"><a href="/views/subMenu/Gabinetes.html" class="menu__link">Gabinetes</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Motherboards.html" class="menu__link">Motherboard</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Procesadores.html" class="menu__link">Procesadores</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Memorias-Ram.html" class="menu__link">Memorias Ram</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Almacenamiento.html" class="menu__link">Almacenamiento</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Placas-de-video.html" class="menu__link">Placas De Video</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Monitores.html" class="menu__link">Monitores</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Notebooks.html" class="menu__link">Notebooks</a></li>
-             </ul>
-         </li>
-         <li class="menu__item"><a href="/views/Contacto.html" class="menu__link">Contacto</a></li>
-     </ul>
+     <div id="sidebar">
+        <div class="toggle-btn">
+          <span>&#9776</span>
+        </div>
+        <div>
+            <h1 class="logo">Venta Online Gaming</h1>
+          </div>
+        <ul>
+                <li><a class="active" href="/index.html">Inicio</a></li>
+                <li><a href="/views/Nosotros.html">Nosotros</a></li>
+                <li><a href="/views/Productos.html">Productos</a></li>
+                <li><a href="/views/Contacto.html">Contacto</a></li>
+        </ul>
+      </div>
 
      <form action="" class="formulario-C">
          <h1 class="formulario__titulo">Contáctenos</h1>
@@ -49,8 +43,8 @@
          <input type="submit" class="formulario__submit">
      </form>
 
-     
-     <script src="menu.js"></script>
-     <script src="contacto.js"></script>
+     <script src="/main.js"></script>
+     <script src="/contacto.js"></script>
+     <script src="/menu.js"></script>
 </body>
 </html>
