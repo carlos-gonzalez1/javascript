@@ -1,4 +1,3 @@
-//DOM , EVENTOS Y COMPLEMENTARIO
 
 class Producto {
     constructor(upc, nombre, marca, precio) {
