@@ -14,29 +14,45 @@
 </head>
 <body>
     
+      <!--NAVEGATION-->
+      <div id="sidebar">
+        <div class="toggle-btn">
+          <span>&#9776</span>
+        </div>
+        <div>
+            <h1 class="logo">Venta Online Gaming</h1>
+          </div>
+        <ul>
+                <li><a class="active" href="/index.html">Inicio</a></li>
+                <li><a href="/views/Nosotros.html">Nosotros</a></li>
+                <li><a href="/views/Productos.html">Productos</a></li>
+                <li><a href="/views/Contacto.html">Contacto</a></li>
+        </ul>
+      </div>
      <!--NAVEGATION-->
-     <span class="nav-bar" id="btnMenu"><i class="fas fa-bars"></i>Menú</span>
-     <nav class="main-nav"></nav>
-     <ul class="menu" id="menu">
-         <li class="menu__item"><a href="index.html" class="menu__link">Inicio</a></li>
-         <li class="menu__item"><a href="Nosotros.html" class="menu__link">Nosotros</a></li>
-         <li class="menu__item container-submenu">
-             <a href="#" class="menu__link submenu-btn">Productos <i class="fas fa-angle-down"></i></a>
-             <ul class="submenu">
-                 <li class="menu__item"><a href="/views/subMenu/Gabinetes.html" class="menu__link">Gabinetes</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Motherboards.html" class="menu__link">Motherboard</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Procesadores.html" class="menu__link">Procesadores</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Memorias-Ram.html" class="menu__link">Memorias Ram</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Almacenamiento.html" class="menu__link">Almacenamiento</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Placas-de-video.html" class="menu__link">Placas De Video</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Monitores.html" class="menu__link">Monitores</a></li>
-                 <li class="menu__item"><a href="/views/subMenu/Notebooks.html" class="menu__link">Notebooks</a></li>
-             </ul>
-         </li>
-         <li class="menu__item"><a href="Contacto.html" class="menu__link">Contacto</a></li>
-     </ul>
 
-     <script src="main.js"></script>
-     <script src="menu.js"></script>
+      <div class="container">
+        <h2>Menu Productos</h2>
+        <div id="darkMode" class="btn btn-success">Dark Mode</div>
+        <div id="mostrarMenu" class="btn btn-info">Agregar Producto</div>
+        <div id="revoverProductos" class="btn btn-danger float-end">Elimar Todo</div>
+        <div id="menuAgregar" class="oculto m-3">
+            <form id="formularioProductos-1">
+                <input id="upc" name="upc" type="text" autocomplete="off" placeholder="UPC">
+                <input id="nombre" name="nombre" type="text" autocomplete="off" placeholder="Nombre">
+                <input id="marca" name="marca" type="text" autocomplete="off" placeholder="Marca">
+                <input id="precio"name="precio" type="number" autocomplete="off" placeholder="Precio">
+                <input type="submit" value="Agregar Producto">
+            </form>
+        </div>
+        <div id="listado"></div>
+    </div>
+
+    
+     
+
+     <script src="/main.js"></script>
+     <script src="/menu.js"></script>
+     <script src="/contacto.js"></script>
 </body>
 </html>
