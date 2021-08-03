@@ -1,8 +1,8 @@
-//MENÚ
+// menu
+const btnToggle = document.querySelector('.toggle-btn');
 
-const btnMenu = document.querySelector("#btnMenu");
-const menu = document.querySelector("#menu");
-btnMenu.addEventListener("click", function(){
-    menu.classList.toggle("mostrarMenu");
+btnToggle.addEventListener('click', function () {
+  console.log('clik')
+  document.getElementById('sidebar').classList.toggle('active');
+  console.log(document.getElementById('sidebar'))
 });
-
