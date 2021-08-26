@@ -1,0 +1,107 @@
+
+[
+  {
+    "casa": {
+      "compra": "96,53",
+      "venta": "102,53",
+      "agencia": "349",
+      "nombre": "Dolar Oficial",
+      "variacion": "0,17",
+      "ventaCero": "TRUE",
+      "decimales": "2"
+    }
+  },
+  {
+    "casa": {
+      "compra": "178,00",
+      "venta": "182,00",
+      "agencia": "310",
+      "nombre": "Dolar Blue",
+      "variacion": "1,96",
+      "ventaCero": "TRUE",
+      "decimales": "2"
+    }
+  },
+  {
+    "casa": {
+      "compra": "No Cotiza",
+      "venta": "0",
+      "agencia": "311",
+      "nombre": "Dolar Soja",
+      "variacion": "0",
+      "ventaCero": "TRUE",
+      "decimales": "3"
+    }
+  },
+  {
+    "casa": {
+      "compra": "165,35",
+      "venta": "166,79",
+      "agencia": "312",
+      "nombre": "Dolar Contado con Liqui",
+      "variacion": "-2,58",
+      "ventaCero": "TRUE",
+      "decimales": "2"
+    }
+  },
+  {
+    "casa": {
+      "compra": "170,060",
+      "venta": "169,670",
+      "agencia": "313",
+      "nombre": "Dolar Bolsa",
+      "variacion": "0,850",
+      "ventaCero": "TRUE",
+      "decimales": "3"
+    }
+  },
+  {
+    "casa": {
+      "compra": "9.852,070",
+      "venta": "0",
+      "agencia": "399",
+      "nombre": "Bitcoin",
+      "variacion": "-100,00",
+      "ventaCero": "TRUE",
+      "decimales": "3"
+    }
+  },
+  {
+    "casa": {
+      "nombre": "Dolar turista",
+      "compra": "No Cotiza",
+      "venta": "169,17",
+      "agencia": "406",
+      "variacion": "0,17",
+      "ventaCero": "TRUE",
+      "decimales": "2"
+    }
+  },
+  {
+    "casa": {
+      "compra": "96,38",
+      "venta": "102,55",
+      "agencia": "302",
+      "nombre": "Dolar",
+      "decimales": "3"
+    }
+  },
+  {
+    "casa": {
+      "nombre": "Argentina",
+      "compra": "1.538,00",
+      "venta": "-1,73",
+      "mejor_compra": "True",
+      "mejor_venta": "False",
+      "fecha": "05/05/15",
+      "recorrido": "16:30",
+      "afluencia": {
+        
+      },
+      "agencia": "141",
+      "observaciones": {
+        
+      }
+    }
+  }
+]
